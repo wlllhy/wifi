@@ -168,7 +168,7 @@ class Main extends Component {
                         direction: 'left'}, {
                     value: this.state.deepAccessRatio+0.1,
                     direction: 'left',
-                    itemStyle: {
+                    itemStye: {
                         normal: {
                             color: 'red'
                         }

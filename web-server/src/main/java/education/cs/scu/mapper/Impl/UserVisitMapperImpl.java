@@ -29,6 +29,7 @@ public class UserVisitMapperImpl implements UserVisitMapper {
     private static final String TABLE_USER_VISIT_KEY = "TABLE_USER_VISIT";
     private static final String TEST_KEY = "testlist";
 
+    @Override
     public void addUserVisit(UserVisitBean userVisitBean) throws Exception {
         redisTemplate.opsForList().leftPush(USER_VISIT_KEY, JSON.toJSONString(userVisitBean));
     }

@@ -78,6 +78,7 @@ class Login extends Component {
     }
     handleSubmit = (e) => { // 登录
         e.preventDefault();
+        //获取表单的所有数据
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 let username = values.username, // 用户名
@@ -101,6 +102,7 @@ class Login extends Component {
                         });
                     } else {
                         message.error(Config.message.loginError);
+                        //实时更新页面
                         this.setState({loginBtnLoading: false, loginBtnText: '登录'});
                     }
                 }, 'userLogin', 'GET');
@@ -154,13 +156,13 @@ class Login extends Component {
                 <div className="login-form">
                     <Spin tip="载入中..." spinning={this.state.loginSpinning}>
                         <div className="login-logo">
-                            <img src={Config.logoSrc}/>
-                            <span>WIFI探针大数据管理平台</span>
+                            {/*<img src={Config.logoSrc}/>*/}
+                            <span>流量监控可视化平台</span>
                         </div>
                         <Form onSubmit={this.handleSubmit}>
                             <FormItem hasFeedback>
                                 {getFieldDecorator('username', {
-                                    initialValue: '18996720676',
+                                    initialValue: '15310862331',
                                     rules: [{
                                         required: true,
                                         message: Config.message.usernameInput
@@ -173,7 +175,7 @@ class Login extends Component {
                             </FormItem>
                             <FormItem hasFeedback>
                                 {getFieldDecorator('password', {
-                                    initialValue: '110110',
+                                    initialValue: '19990624',
                                     rules: [{
                                         required: true,
                                         message: Config.message.passwordInput,

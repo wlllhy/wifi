@@ -12,10 +12,12 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private UserMapper userMapper;
 
+    @Override
     public User doUserLogin(User user) throws Exception {
         return userMapper.doUserLogin(user);
     }
 
+    @Override
     public User doUserVerify(User user) throws Exception {
         return userMapper.doUserVerify(user);
     }
