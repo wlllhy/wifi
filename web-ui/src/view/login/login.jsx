@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {is, fromJS} from 'immutable';
 import {RenderData, Config} from '../../component/mixin';
 
+
 import styles from './style/login.less';
 
 import {Spin, Form, Input, Button, message} from 'antd';
@@ -152,8 +153,9 @@ class Login extends Component {
     render() {
         const {getFieldDecorator} = this.props.form;
         return (
-            <div className="login-container">
-                <div className="login-form">
+
+        <div className="login-container">
+            <div className="login-form">
                     <Spin tip="载入中..." spinning={this.state.loginSpinning}>
                         <div className="login-logo">
                             {/*<img src={Config.logoSrc}/>*/}

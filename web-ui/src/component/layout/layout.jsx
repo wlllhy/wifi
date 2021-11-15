@@ -54,21 +54,21 @@ class Main extends Component {
 		// 这个组件是一个包裹组件，所有的路由跳转的页面都会以this.props.children的形式加载到本组件下
 		return (
 		<Layout className="layout">
-	        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
-		        <div className="layout-logo">
-		        	<Link to="/home">
-			        	<img className="logo-img" src={Config.logoSrc} />
-			        	<span className="logo-text">{Config.logoText}</span>
-		        	</Link>
-		        </div>
-	        	<Lmenu mode={ this.state.mode } />
-	        </Sider>
-	        <Layout>
+	        {/*<Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>*/}
+		    {/*    /!*<div className="layout-logo">*!/*/}
+		    {/*    /!*	/!*<Link to="/home">*!/*!/*/}
+			{/*    /!*    /!*	/!*<img className="logo-img" src={Config.logoSrc} />*!/*!/*!/*/}
+			{/*    /!*    /!*	/!*<span className="logo-text">{Config.logoText}</span>*!/*!/*!/*/}
+		    {/*    /!*	/!*</Link>*!/*!/*/}
+		    {/*    /!*</div>*!/*/}
+	        {/*	/!*<Lmenu mode={ this.state.mode } />*!/*/}
+	        {/*</Sider>*/}
+	        <Layout >
 	          <Lheader collapsed={this.state.collapsed} toggle={ collapsed => this.toggle(collapsed) } />
 	          <Content className="layout-content">
 	           	{this.props.children}
 	          </Content>
-	          <Lfooter />
+	          {/*<Lfooter />*/}
 	        </Layout>
 	    </Layout>
 		);

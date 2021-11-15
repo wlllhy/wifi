@@ -21,7 +21,10 @@ export class Lheader extends Component {
         return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state),fromJS(nextState))
     }
 	toggle = () => {
-		this.props.toggle(!this.props.collapsed);
+		// this.props.toggle(!this.props.collapsed);
+			this.context.router.push({
+				pathname: '/general/allDataView'
+			});
   	}
   	logout= (e) => {
   		// 模拟退出
@@ -36,11 +39,15 @@ export class Lheader extends Component {
 		return (
 			<Header className="layout-header">
 	            <Icon className="trigger" type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'} onClick={this.toggle} />
+				<span className="biaoti">流量可视化监控平台</span>
+
 	            <Menu mode="horizontal" onClick={this.logout} className="layout-header-menu">
-		        <SubMenu title={<span><Icon type="user" />admin</span>}>
+		        <SubMenu title={<span className="admins"><Icon type="user" />admin</span>}>
 		        	<Menu.Item key="logout">注销</Menu.Item>
 		        </SubMenu>
 			    </Menu>
+				<span className="read-data">历史览阅</span>
+				<div className="tupian2"> </div>
 	        </Header>
 		)
 	}

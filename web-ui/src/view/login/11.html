@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /**{*/
+        /*    margin: 0px;*/
+        /*    padding: 0px;*/
+        /*}*/
+        video{
+            position: fixed;
+            right: 0px;
+            bottom: 0px;
+            min-width: 100%;
+            min-height: 100%;
+            height: auto;
+            width: auto;
+            /*加滤镜*/
+            /*filter: blur(15px); //背景模糊设置 */
+            /*-webkit-filter: grayscale(100%);*/
+            /*filter:grayscale(100%); //背景灰度设置*/
+            z-index:-11
+        }
+        source{
+            min-width: 100%;
+            min-height: 100%;
+            height: auto;
+            width: auto;
+        }
+        .input{
+            position: relative;
+            left: 50%;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-align: center;
+            height: 2.7em;
+            line-height: 2.7em;
+            border-radius: 6px;
+            border:1px solid black;
+            background-color: rgba(128,128,128,.5);
+        }
+        .submit{
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <video id="v1" autoplay loop muted>
+        <source src="bg.mp4" type="video/mp4"  />
+    </video>
+
+        <input  class="input" type="text" >1111111</input>
+    <div class="submit">
+    <a href="http://localhost:8888/home">提交哦</a>
+    </div>
+
+
+</div>
+
+</body>
+</html>

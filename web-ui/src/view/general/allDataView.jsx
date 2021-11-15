@@ -78,7 +78,7 @@ class Main extends Component {
                 Math.floor(Math.random() * 10000)
             ]);
             }
-        console.log(data);
+        console.log("----->"+data);
         //return data;
         this.state.yearData = data;
         this.setState({yearData: this.state.yearData});
@@ -168,7 +168,7 @@ class Main extends Component {
         const mgLeft = 100;
         const mgTop = 10;
         let data = this.state.yearData;
-        //console.log(data);
+        console.log(data);
         let option = {
             backgroundColor: backColor,
             title: {
@@ -197,7 +197,7 @@ class Main extends Component {
             calendar: [{
                 top: 'center',
                 left: 'center',
-                range: ['2016-01-01', '2016-12-31'],
+                range: ['2021-01-01', '2021-11-15'],
                 monthLabel: {
                     nameMap: 'cn',
                     textStyle:{
@@ -665,46 +665,46 @@ class Main extends Component {
 		return(
             <div>
                 <Row>
-                    <Bcrumb title="数据一览"/>
+                    <Bcrumb title="历史数据"/>
                     <Col span={4}>
-                        <div className="mg-left10">
-                            <RadioGroup defaultValue="1" size="large" onChange={this.getVirtulData(2016)}>
+                        <div className="mg-left10 data">
+                            <RadioGroup defaultValue="1" size="large" onChange={this.getVirtulData(2021)}>
                                 {this.state.shopName.map((shop)=>
                                     <RadioButton key={shop.shop_id} value={shop.shop_id}>{shop.shop_name}</RadioButton>)}
                             </RadioGroup>
                             {/*<Table columns={columns} className="mg-top20"/>*/}
                         </div>
                     </Col>
-                    <Col span={20}>
-                        <Card title="日历数据" id="CalendarView" className="mg-left10"/>
+                    <Col className="data2">
+                        <Card title="日历数据" id="CalendarView" />
                     </Col>
 
-                    <Col span={4}>
-                        <div className="mg-left10">
-                            <MonthPicker onChange={this.onMonthChange} />
-                        </div>
-                    </Col>
-                    <Col span={20}>
-                        <Card title="月人流量" id="monthlyFlow" className="mg-left10"/>
+                    {/*<Col span={4}>*/}
+                    {/*    <div className="mg-left10 data">*/}
+                    {/*        <MonthPicker onChange={this.onMonthChange} />*/}
+                    {/*    </div>*/}
+                    {/*</Col>*/}
+                    <Col className="data2">
+                        <Card title="月人流量" id="monthlyFlow" className="mg-left10 data"/>
                     </Col>
 
-                    <Col span={4}>
-                        <div className="mg-left10">
-                            <DatePicker onChange={this.onDayChange} />
-                        </div>
-                    </Col>
-                    <Col span={20}>
+                    {/*<Col span={4}>*/}
+                    {/*    <div className="mg-left10 data">*/}
+                    {/*        <DatePicker onChange={this.onDayChange} />*/}
+                    {/*    </div>*/}
+                    {/*</Col>*/}
+                    <Col className="data2">
                         <Card title="每日活跃日志" id="dailyUser" className="mg-left10"/>
                     </Col>
 
-                    <Col span={4}>
-                    </Col>
-                    <Col span={10}>
+                    {/*<Col span={4}>*/}
+                    {/*</Col>*/}
+                    <Col className="data3">
                         <div className="mg-left10">
                             <BrandRatio/>
                         </div>
                     </Col>
-                    <Col span={10}>
+                    <Col className="data3">
                         <Card title="驻留时长" id="stayTime"/>
                     </Col>
                 </Row>

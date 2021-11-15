@@ -16,7 +16,7 @@ let userDiagramDom;
 let enterRate, checkInRatio, deepAccessRatio, jumpRatio;
 let bounceRateDom;
 let webSocket = null;
-let backColor = '#404a59';
+let backColor = 'rgba(0,0,0,.1)';
 /* 以类的方式创建一个组件 */
 class Main extends Component {
     constructor(props) {
