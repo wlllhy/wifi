@@ -8,30 +8,27 @@ const CollectionCreateForm = Form.create()(
         return (
             <Modal
                 visible={visible}
-                title="添加新商场"
+                title="添加学员"
                 okText="添加"
                 onCancel={onCancel}
                 onOk={onCreate}
             >
                 <Form layout="vertical">
-                    <FormItem label="商场名称">
-                        {getFieldDecorator('shop_name', {
-                            rules: [{ required: true, message: '请输入商场名称' }],
+                    <FormItem label="mac地址">
+                        {getFieldDecorator('shop_addr', {
+                            rules: [{ required: true, message: '请输入mac地址' }],
                         })(
                             <Input />
                         )}
                     </FormItem>
-                    <FormItem label="商场地址">
-                        {getFieldDecorator('shop_addr')(<Input type="text" />)}
+                    <FormItem label="学员姓名">
+                        {getFieldDecorator('shop_name')(<Input type="text" />)}
                     </FormItem>
-                    <FormItem label="商场联系人">
+                    <FormItem label="部门">
                         {getFieldDecorator('shop_manager')(<Input type="text" />)}
                     </FormItem>
-                    <FormItem label="联系方式">
+                    <FormItem label="学号">
                         {getFieldDecorator('shop_telephone')(<Input type="text" />)}
-                    </FormItem>
-                    <FormItem label="描述">
-                        {getFieldDecorator('shop_description')(<Input type="textarea" />)}
                     </FormItem>
                 </Form>
             </Modal>

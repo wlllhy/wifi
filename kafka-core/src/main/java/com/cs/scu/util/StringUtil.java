@@ -5,12 +5,6 @@ import org.apache.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 字符串工具类
- * 
- * @author zym
- * 
- */
 public class StringUtil {
 
 	private static final Logger logger = Logger.getLogger(StringUtil.class);

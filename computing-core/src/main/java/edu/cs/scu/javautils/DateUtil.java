@@ -8,16 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * 日期工具类
- * <p>
- * Created by Wang Han on 2017/3/30 20:24.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © Wang Han. SCU. All Rights Reserved.
- *
- * @author Wang Han
- */
-
 public class DateUtil {
 
     // 得到log记录器

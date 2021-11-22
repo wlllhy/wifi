@@ -3,10 +3,6 @@ package education.cs.scu.entity.entityData;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * @Author lch
- * @Create on 2017/09/05 22:57
- **/
 public class Day implements Serializable {
 
     private static final long serialVersionUID = -6513964700147498985L;

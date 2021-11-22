@@ -16,17 +16,6 @@ import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * 生成报表控制类
- * Created by Wang Han on 2017/6/27 15:38.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © 2017 Wang Han. SCU. All Rights Reserved.
- *
- * @author Wang Han
- *         <p>
- *         <p>
- *         Edited by lch on 2017/8/31 23:57
- */
 public class ExcelUtil<T> {
 
     public void exportExcel(String[] headers, Collection<T> dataset, OutputStream out) {

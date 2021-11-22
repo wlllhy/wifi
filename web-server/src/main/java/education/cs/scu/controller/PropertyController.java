@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by maicius on 2017/6/28.
- */
+
 @RestController
 public class PropertyController {
     @Autowired

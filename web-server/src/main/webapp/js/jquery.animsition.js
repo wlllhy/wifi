@@ -1,10 +1,4 @@
-/*!
- * animsition v3.4.3
- * http://blivesta.github.io/animsition/
- * Licensed under MIT
- * Author : blivesta
- * http://blivesta.com/
- */
+
 (function($) {
   "use strict";
   var namespace = "animsition";

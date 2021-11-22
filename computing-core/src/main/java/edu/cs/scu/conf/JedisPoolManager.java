@@ -12,13 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-/**
- * Created by Wang Han on 2017/8/26 10:20.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © 2017 Wang Han. All Rights Reserved.
- *
- * @author Wang Han
- */
 public class JedisPoolManager {
     private static Properties properties = new Properties();
     private static final Logger logger = Logger.getLogger(ConfigurationManager.class);

@@ -15,12 +15,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- * QueryHistoryDataMapperImpl
- *
- * @Author lch
- * @Create on 2017/08/25 14:57
- **/
 public class QueryHistoryDataMapperImpl implements QueryHistoryDataMapper {
 
     @Autowired

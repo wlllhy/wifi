@@ -6,13 +6,6 @@ import edu.cs.scu.dao.PropertyDao;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
-/**
- * Created by Wang Han on 2017/6/18 19:20.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © 2017 Wang Han. SCU. All Rights Reserved.
- *
- * @author Wang Han
- */
 public class PropertyDaoImpl implements PropertyDao {
     // 得到log记录器
     private static final Logger logger = Logger.getLogger(PropertyDaoImpl.class);

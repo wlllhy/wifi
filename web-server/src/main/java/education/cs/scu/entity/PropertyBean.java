@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by maicius on 2017/6/28.
- */
 public class PropertyBean implements Serializable {
 
     private static final long serialVersionUID = 351877796426921776L;

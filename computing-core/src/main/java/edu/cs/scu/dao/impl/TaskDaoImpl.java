@@ -9,15 +9,6 @@ import org.apache.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 任务信息数据库接口实现
- * <p>
- * Created by Wang Han on 2017/4/6 17:18.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © Wang Han. SCU. All Rights Reserved.
- *
- * @author Wang Han
- */
 public class TaskDaoImpl implements TaskDao {
     // 得到log记录器
     private static final Logger logger = Logger.getLogger(TaskDaoImpl.class);

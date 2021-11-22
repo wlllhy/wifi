@@ -1,6 +1,4 @@
-/**
- * Created by maicius on 2017/6/21.
- */
+
 import React, {Component, PropTypes} from 'react'; // 引入了React和PropTypes
 import {connect} from 'react-redux';
 import {is, fromJS} from 'immutable';

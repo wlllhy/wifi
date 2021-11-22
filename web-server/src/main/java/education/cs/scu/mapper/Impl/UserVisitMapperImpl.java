@@ -14,12 +14,6 @@ import javax.json.Json;
 import java.util.*;
 
 
-/**
- * UserVisitMapperImpl
- *
- * @Author lch
- * @Create on 2017/08/25 19:51
- **/
 public class UserVisitMapperImpl implements UserVisitMapper {
 
     @Autowired

@@ -36,14 +36,11 @@ public class UserMapperImpl implements UserMapper {
             Map<Object, Object> userMap = hashOperations.entries(user.getUserName());
             System.out.println("userpassword:" + user.getPassword());
             System.out.println("userpassword:" + userMap.get("password"));
-            if (user.getPassword().equals(userMap.get("password")) &&
-                    user.getVerifyCode().equals(userMap.get("verifyCode"))) {
+            if (user.getPassword().equals(userMap.get("password")) ) {
                 //登陆成功返回用户名
                 System.out.println("登陆成功");
                 loginUser.setUserName((String) userMap.get("userName"));
                 loginUser.setNickName((String) userMap.get("nickName"));
-                //登陆成功清除验证码
-                hashOperations.put(loginUser.getUserName(),"verifyCode","");
             }
         }catch(Exception e){
             //发生错误时强制关闭实例

@@ -1,19 +1,27 @@
 package edu.cs.scu.analysis.realtimeanalysis
 
 import java.util
-
 import edu.cs.scu.bean.{UserBean, UserVisitBean, UserVisitTimeBean}
 import edu.cs.scu.common.constants.AnalysisConstants
 import edu.cs.scu.common.types.TimeTypes
 import edu.cs.scu.dao.impl.{UserDaoImpl, UserVisitDaoImpl, UserVisitTimeDaoImpl}
 import edu.cs.scu.javautils.{DateUtil, MacAdressUtil}
 import edu.cs.scu.scalautils.AnalysisUtil
-import org.apache.spark.sql.{Row, SparkSession}
+import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 import org.apache.spark.streaming.StreamingContext
 import org.apache.spark.streaming.dstream.DStream
 
+import scala.collection.mutable
 
 object RealTimeAnalysis {
+  val map=mutable.Map[String,String]()
+  val map2: Map[String, String] = Map[String, String](
+    elems = "url" -> "jdbc:mysql://localhost:3306/WIFIProbeAnalysis?characterEncoding=UTF-8&useSSL=false",
+    "driver" -> "com.mysql.jdbc.Driver",
+    "user" -> "root",
+    "password" -> "root",
+    "dbtable" -> "shop_info"
+  )
   def analysis(sparkSession: SparkSession, streamingContext: StreamingContext, data: DStream[String]): Unit = {
 
     //    val preData = DataUtil.getPreDStream(sQLContext, data)
@@ -25,6 +33,24 @@ object RealTimeAnalysis {
     //    val totalFlowData = DataUtil.getTotalFlow(flowData)
     //    val checkInFlowData = DataUtil.getCheckInFlow(flowData)
     println(data)
+
+    val frame: DataFrame = sparkSession
+      .read
+      .format("jdbc")
+      .options(
+        map2
+      )
+      .load
+
+    frame.rdd.foreach{
+      x=>{
+        val st: Array[String] = x.toString()
+          .replaceAll("\\[","")
+          .replaceAll("\\]","")
+          .split(",")
+        map+=st(1)->st(3)
+      }
+    }
     data.foreachRDD(foreachFunc = rdd => {
       println("count", rdd.count())
       // 如果当前窗口记录不为空
@@ -63,6 +89,12 @@ object RealTimeAnalysis {
           var checkInFlow: Int = 0
           // 深度访问人数,根据访问时间判断
           var deepVisitFlow: Int = 0
+          // 进店率--》区域总流量--》总人数
+          var checkInRate=0
+          // 深度访问率
+          var deepVisitRate = 0
+          // 浅访率
+          var shallowVisitRate = 0
           // 用户访问时间列表
           val userVisitTimeBeanArrayList: util.List[Object] = new util.ArrayList()
           // 用户列表
@@ -89,9 +121,16 @@ object RealTimeAnalysis {
 
             // 判断用户是否入店
             if (AnalysisUtil.isCheckIn(range, rssi)) {
-              checkInFlow = checkInFlow + 1
+              checkInFlow = checkInFlow + 3
               if (AnalysisUtil.isDeepVisit(1, mac, time)) {
                 deepVisitFlow = deepVisitFlow + 1
+              }
+              if ("1".equals(map(mac))){
+                checkInRate=checkInRate+3
+              }else if("2".equals(map(mac))){
+                shallowVisitRate=shallowVisitRate+3
+              }else if("3".equals(map(mac))){
+                deepVisitRate=deepVisitRate+3
               }
             }
             // 向用户列表中加入新数据
@@ -117,12 +156,12 @@ object RealTimeAnalysis {
           val userVisitTimeDaoImpl = new UserVisitTimeDaoImpl
           userVisitTimeDaoImpl.add(userVisitTimeBeanArrayList)
 
-          // 进店率
-          val checkInRate = AnalysisUtil.getCheckInRate(checkInFlow, totalFlow)
-          // 深度访问率
-          val deepVisitRate = AnalysisUtil.getDeepVisitRate(deepVisitFlow, checkInFlow)
-          // 浅访率
-          val shallowVisitRate = AnalysisUtil.getShallowVisitRate(deepVisitFlow, checkInFlow)
+//          // 进店率--》区域总流量--》总人数
+//          val checkInRate = AnalysisUtil.getCheckInRate(checkInFlow, totalFlow)
+//          // 深度访问率
+//          val deepVisitRate = AnalysisUtil.getDeepVisitRate(deepVisitFlow, checkInFlow)
+//          // 浅访率
+//          val shallowVisitRate = AnalysisUtil.getShallowVisitRate(deepVisitFlow, checkInFlow)
           // 添加用户相关信息
           val userVisitDaoIml = new UserVisitDaoImpl
           val userVisitList: util.List[Object] = new util.ArrayList[Object]()

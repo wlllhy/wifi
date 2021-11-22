@@ -1,8 +1,5 @@
 package com.cs.scu.entity;
 
-/**
- * Created by lch on 2017/6/21.
- */
 public class Data {
 
     //router 如果没有需要补全

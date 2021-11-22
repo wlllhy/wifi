@@ -1,9 +1,7 @@
 package education.cs.scu.service;
 
-/**
- * Created by maicius on 2017/6/27.
- */
 
+import education.cs.scu.entity.ClassMac;
 import education.cs.scu.entity.ProbeInfo;
 import education.cs.scu.entity.ShopInfo;
 import education.cs.scu.entity.User;
@@ -20,4 +18,6 @@ public interface ShopService {
     List<ProbeInfo> queryshopProbeInfos(ShopInfo shopInfo) throws Exception;
     int addProbeInfo(ProbeInfo probeInfo);
     List<ShopInfo> queryShopNameById(ShopInfo shopInfo);
+
+    List<ClassMac> queryClassMac();
 }

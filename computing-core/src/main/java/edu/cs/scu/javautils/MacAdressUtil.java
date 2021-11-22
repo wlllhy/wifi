@@ -4,15 +4,6 @@ import edu.cs.scu.bean.VendorMacBean;
 import edu.cs.scu.dao.impl.VendorMacDaoImpl;
 import org.apache.log4j.Logger;
 
-/**
- * Mac 地址解析类
- * <p>
- * Created by Wang Han on 2017/6/19 17:31.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © 2017 Wang Han. SCU. All Rights Reserved.
- *
- * @author Wang Han
- */
 public class MacAdressUtil {
     // 得到log记录器
     private static final Logger logger = Logger.getLogger(MacAdressUtil.class);

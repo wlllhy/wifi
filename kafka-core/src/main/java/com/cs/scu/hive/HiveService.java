@@ -3,9 +3,6 @@ package com.cs.scu.hive;
 
 import java.sql.*;
 
-/**
- * Created by lch on 2017/6/25.
- */
 public class HiveService {
 
     //hive的jdbc驱动类

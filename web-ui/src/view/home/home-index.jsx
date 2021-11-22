@@ -31,6 +31,8 @@ class Main extends Component {
              avgCheckInRatio: 0,
              deepAccessRatio: 0,
              jumpRatio:0,
+            checkInRate:0,
+            deepVisitRatio:0,
         };
     }
 
@@ -54,19 +56,22 @@ class Main extends Component {
         return new Date(parseInt(nS)).toLocaleString();
     }
     handleUserData(data) {
-        //let obj = eval('(' + data + ')');
-        //console.log(data);
+        // let obj = eval('(' + data + ')');
+        console.log("hadleuserdate----->"+data);
         data = JSON.parse(data);
-        console.log(data);
-        let newData = [this.getLocalTime(data.time), data.totalFlow, data.checkInFlow];
+        console.log("data---->"+data.toString());
+        let newData = [this.getLocalTime(data.time), data.checkInRatio, data.jumpRatio, data.deepVisitRatio];
         this.state.totalFlow = data.totalFlow;
         this.state.checkInFlows = data.checkInFlow;
+
+        this.state.checkInRate = data.checkInRate;
+
         this.state.avgCheckInRatio = (this.state.checkInFlows / this.state.totalFlow).toFixed(2);
 
         this.state.userDiagramData.push(newData);
-        this.state.checkInRatio = data.checkInRatio.toFixed(2);
+        this.state.checkInRatio = data.checkInRatio.toFixed(0);
         this.state.deepAccessRatio = data.deepVisitRatio;
-        this.state.jumpRatio = data.jumpRatio.toFixed(2);
+        this.state.jumpRatio = data.jumpRatio.toFixed(0);
         this.setState({ userDiagramData: this.state.userDiagramData,
                         checkInRatio:this.state.checkInRatio,
                         deepAccessRatio: this.state.deepAccessRatio,
@@ -74,17 +79,20 @@ class Main extends Component {
 
                         checkInFlows: this.state.checkInFlows,
                         avgCheckInRatio: this.state.avgCheckInRatio,
-                        totalFlow: this.state.totalFlow
+
+                        totalFlow: this.state.totalFlow,
+                        checkInRate: this.state.checkInRate,
+            deepVisitRatio: this.state.deepVisitRatio
 
             });
-        //console.log("userDiagramData:" + userDiagramData);
+        console.log("userDiagramData:" + this.state.userDiagramData);
     }
 
     drawCheckInRatio(){
        // console.log("draw check in ratio");
         let option = {
             title: {
-                text: '入店率',
+                text: '内卷率',
                 textStyle:{
                     color: '#fff'
                 }
@@ -93,21 +101,21 @@ class Main extends Component {
             series: [{
                 type: 'liquidFill',
                 radius: '80%',
-                data: [this.state.checkInRatio, {
-                    value: this.state.checkInRatio-0.1,
+                data: [(this.state.checkInFlows/108).toFixed(2), {
+                    value: (this.state.checkInFlows/108).toFixed(2)-0.1,
                     direction: 'left',
                     itemStyle: {
                         normal: {
                             color: 'red'
                         }
                     }
-                }, {value:this.state.checkInRatio-0.2,
+                }, {value:(this.state.checkInFlows/108).toFixed(2)-0.2,
                     direction: 'left',
                     itemStyle:{
                     normal:{
                         color: 'green'
                         }
-                    }}, this.state.checkInRatio-0.3]
+                    }}, (this.state.checkInFlows/108).toFixed(2)-0.3]
             }]
         };
         checkInRatio.setOption(option);
@@ -155,7 +163,7 @@ class Main extends Component {
         console.log("draw deep access");
         let option = {
             title: {
-                text: '深访率',
+                text: '躺平率',
                 textStyle:{
                     color: '#fff'
                 }
@@ -164,16 +172,16 @@ class Main extends Component {
             series: [{
                 type: 'liquidFill',
                 radius: '80%',
-                data: [{value: this.state.deepAccessRatio,
+                data: [{value: (1-this.state.checkInFlows/108).toFixed(2),
                         direction: 'left'}, {
-                    value: this.state.deepAccessRatio+0.1,
+                    value: (1-this.state.checkInFlows/108).toFixed(2)+0.1,
                     direction: 'left',
                     itemStye: {
                         normal: {
                             color: 'red'
                         }
                     }
-                }, this.state.deepAccessRatio-0.3, this.state.deepAccessRatio-0.4]
+                }, (1-this.state.checkInFlows/108).toFixed(2)-0.3, (1-this.state.checkInFlows/108).toFixed(2)-0.4]
             }]
         };
         jumpRatio.setOption(option);
@@ -198,13 +206,14 @@ class Main extends Component {
                 },
                 legend: {
                     y: 'top',
-                    data: ['区域流量', '入店流量'],
+                    data: ['一部', '二部','三部'],
                     textStyle: {
                         color: '#fff',
                         fontSize: 16
                     }
                 },
                 backgroundColor: backColor,
+                //鼠标浮动
                 tooltip: {
                     trigger: 'axis'
                 },
@@ -226,7 +235,7 @@ class Main extends Component {
                     axisLine: {
                         lineStyle: {
                             color: 'white',
-                            width: 2
+                            width:2
                         }
                     }
                 },
@@ -281,8 +290,9 @@ class Main extends Component {
                         color: '#999'
                     }
                 },
-                series: [{
-                    name: '区域流量',
+                series: [
+                    {
+                    name: '一部',
                     left: 'center',
                     type: 'line',
                     data: this.state.userDiagramData.map(function (item) {
@@ -290,7 +300,7 @@ class Main extends Component {
                     }),
                     markLine: {
                         silent: true,
-                        label: '区域流量',
+                        label: '一部',
                         lineStyle: {
                             normal: {
                                 width: 3,
@@ -310,7 +320,7 @@ class Main extends Component {
                         }]
                     }
                 }, {
-                    name: '入店流量',
+                    name: '二部',
                     left: 'center',
                     type: 'line',
                     data: this.state.userDiagramData.map(function (item) {
@@ -318,7 +328,7 @@ class Main extends Component {
                     }),
                     markLine: {
                         silent: true,
-                        label: '入店流量',
+                        label: '二部',
                         lineStyle: {
                             normal: {
                                 width: 3,
@@ -337,7 +347,37 @@ class Main extends Component {
                             yAxis: 300
                         }]
                     }
-                }]
+                },{
+                        name: '三部',
+                        left: 'center',
+                        type: 'line',
+                        data: this.state.userDiagramData.map(function (item) {
+
+                            console.log("item----->",item)
+                            return item[3];
+                        }),
+                        markLine: {
+                            silent: true,
+                            label: '三部',
+                            lineStyle: {
+                                normal: {
+                                    width: 3,
+                                    type: 'dashed'
+                                }
+                            },
+                            data: [{
+                                yAxis: 50
+                            }, {
+                                yAxis: 100
+                            }, {
+                                yAxis: 150
+                            }, {
+                                yAxis: 200
+                            }, {
+                                yAxis: 300
+                            }]
+                        }
+                    }]
 
             });
         }catch (e){
@@ -379,7 +419,9 @@ class Main extends Component {
             webSocket.onopen = () =>{
                 console.log("webSocket open");
             };
+            //监听message事件，在服务器响应时接受数据。返回的数据存储在事件对象中。
             webSocket.onmessage = (data) =>{
+                console.log("onmessage-->"+data.data)
                 this.handleUserData(data.data);
             };
             window.onbeforeunload = function () {
@@ -403,16 +445,16 @@ class Main extends Component {
             {title:'值',dataIndex: 'property_value',sorter:(a, b) => a.property_value - b.property_value}
         ];
         const dataSource = [
-            {key:'1',property_name: '区域总流量', property_value: this.state.totalFlow},
-            {key:'2',property_name: '入店总客流量', property_value: this.state.checkInFlows},
-            {key:'3',property_name: '平均入店率', property_value: this.state.avgCheckInRatio},
-            {key:'4',property_name: '浅访率', property_value: this.state.jumpRatio}];
+            {key:'1',property_name: '双体区域内总人数', property_value: this.state.checkInFlows},
+            {key:'2',property_name: '一部人数', property_value: this.state.checkInRatio},
+            {key:'3',property_name: '二部人数', property_value: this.state.jumpRatio},
+            {key:'4',property_name: '三部人数', property_value: this.state.deepAccessRatio}];
 		return (
         <div className="home-container mg-top20">
             <Row>
             	<Col span={24}>
                     <Col span={8}>
-                        <Card title="入店率" id="enter-ratio"/>
+                        <Card title="进入率" id="enter-ratio"/>
                     </Col>
                     <Col span={8}>
                         <Table label="数据一览表"

@@ -1,12 +1,6 @@
 package edu.cs.scu.common.constants;
 
-/**
- * Created by Wang Han on 2017/8/25 11:15.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © 2017 Wang Han. All Rights Reserved.
- *
- * @author Wang Han
- */
+
 public interface AnalysisConstants {
     String FIELD_DATA = "data";
     String FIELD_ID = "id";

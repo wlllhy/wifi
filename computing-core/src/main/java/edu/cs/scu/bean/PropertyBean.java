@@ -2,15 +2,6 @@ package edu.cs.scu.bean;
 
 import java.io.Serializable;
 
-/**
- * 店铺探针配置项实体
- * <p>
- * Created by Wang Han on 2017/6/18 18:22.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © 2017 Wang Han. SCU. All Rights Reserved.
- *
- * @author Wang Han
- */
 public class PropertyBean implements Serializable {
     private static final long serialVersinUID = 351877796426921776L;
 

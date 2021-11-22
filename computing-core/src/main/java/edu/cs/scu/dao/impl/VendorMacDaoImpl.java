@@ -8,13 +8,6 @@ import org.apache.log4j.Logger;
 
 import java.util.List;
 
-/**
- * Created by Wang Han on 2017/6/19 16:44.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © 2017 Wang Han. SCU. All Rights Reserved.
- *
- * @author Wang Han
- */
 public class VendorMacDaoImpl implements VendorMacDao {
     // 得到log记录器
     private static final Logger logger = Logger.getLogger(VendorMacDaoImpl.class);

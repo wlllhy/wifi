@@ -2,13 +2,7 @@ package education.cs.scu.entity;
 
 import java.io.Serializable;
 
-/**
- * 用户访问类
- * <p>
- * Created by Wang Han on 2017/6/18 15:11.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © 2017 Wang Han. SCU. All Rights Reserved.
- */
+
 public class UserVisitBean implements Serializable{
 
     private static final long serialVersionUID = 1647357927092562559L;
@@ -89,5 +83,19 @@ public class UserVisitBean implements Serializable{
 
     public void setDeepVisitRate(Double deepVisitRate) {
         this.deepVisitRate = deepVisitRate;
+    }
+
+    @Override
+    public String toString() {
+        return "UserVisitBean{" +
+                "shopId=" + shopId +
+                ", mmac='" + mmac + '\'' +
+                ", time=" + time +
+                ", totalFlow=" + totalFlow +
+                ", checkInFlow=" + checkInFlow +
+                ", checkInRate=" + checkInRate +
+                ", shallowVisitRate=" + shallowVisitRate +
+                ", deepVisitRate=" + deepVisitRate +
+                '}';
     }
 }

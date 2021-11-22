@@ -1,6 +1,4 @@
-/**
- * Created by maicius on 2017/8/30.
- */
+
 import React, {Component} from 'react';
 import {is, fromJS} from 'immutable';
 import echarts from 'echarts/lib/echarts'
@@ -62,7 +60,7 @@ class BrandRatio extends Component{
                 }
             },
             title: {
-                text: '手机品牌',
+                text: '高峰期',
                 left: 'center',
                 top: 20,
                 textStyle: {
@@ -85,16 +83,16 @@ class BrandRatio extends Component{
             },
             series : [
                 {
-                    name:'手机品牌',
+                    name:'高峰期',
                     type:'pie',
                     radius : '55%',
                     center: ['50%', '50%'],
                     data:[
-                        {value:335, name:'华为'},
-                        {value:310, name:'小米'},
-                        {value:274, name:'OPPO'},
-                        {value:235, name:'IPHONE'},
-                        {value:400, name:'其它'}
+                        {value:335, name:'9-11点'},
+                        {value:310, name:'11-14点'},
+                        {value:274, name:'14-18点'},
+                        {value:235, name:'18-19点'},
+                        {value:400, name:'19-22点'}
                     ].sort(function (a, b) { return a.value - b.value; }),
                     roseType: 'area',
                     label: {

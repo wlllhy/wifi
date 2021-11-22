@@ -9,11 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.net.URI;
 
-/**
- * author: maicius
- * date: 2019/2/2
- * description:
- */
+
 @Service
 public class HDFSServiceImpl implements HDFSService{
     private FileSystem fs;

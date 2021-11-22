@@ -21,7 +21,31 @@ class Main extends Component {
             loading: false,
             shopName:[{"shop_id":'1',"shop_name":'南京国际会展中心'},{"shop_id":'2',"shop_name":'华联'},{"shop_id":'3',"shop_name":'二基楼'}],
             yearData:[],
-            dayData:[{"checkInnum":4,"hour":1,"number":8},{"checkInnum":5,"hour":2,"number":6},{"checkInnum":1,"hour":3,"number":4},{"checkInnum":2,"hour":4,"number":4},{"checkInnum":0,"hour":5,"number":1},{"checkInnum":7,"hour":6,"number":10},{"checkInnum":3,"hour":7,"number":12},{"checkInnum":10,"hour":8,"number":12},{"checkInnum":1,"hour":9,"number":21},{"checkInnum":12,"hour":10,"number":17},{"checkInnum":4,"hour":11,"number":14},{"checkInnum":5,"hour":12,"number":17},{"checkInnum":1,"hour":13,"number":17},{"checkInnum":4,"hour":14,"number":27},{"checkInnum":12,"hour":15,"number":26},{"checkInnum":22,"hour":16,"number":27},{"checkInnum":6,"hour":17,"number":18},{"checkInnum":7,"hour":18,"number":18},{"checkInnum":13,"hour":19,"number":14},{"checkInnum":3,"hour":20,"number":24},{"checkInnum":15,"hour":21,"number":19},{"checkInnum":8,"hour":22,"number":10},{"checkInnum":5,"hour":23,"number":8},{"checkInnum":0,"hour":24,"number":1}],
+            dayData:[{"checkInnum":19,"hour":1,"number":23,"Inum":21},
+                {"checkInnum":20,"hour":2,"number":21,"Inum":24},
+                {"checkInnum":25,"hour":3,"number":19,"Inum":20},
+                {"checkInnum":17,"hour":4,"number":19,"Inum":25},
+                {"checkInnum":30,"hour":5,"number":16,"Inum":26},
+                {"checkInnum":22,"hour":6,"number":25,"Inum":21},
+                {"checkInnum":25,"hour":7,"number":27,"Inum":24},
+                // {"checkInnum":10,"hour":8,"number":12,"Inum":6},
+                // {"checkInnum":1,"hour":9,"number":21,"Inum":13},
+                // {"checkInnum":12,"hour":10,"number":17,"Inum":6},
+                // {"checkInnum":4,"hour":11,"number":14,"Inum":18},
+                // {"checkInnum":5,"hour":12,"number":17,"Inum":12},
+                // {"checkInnum":1,"hour":13,"number":17},
+                // {"checkInnum":4,"hour":14,"number":27},
+                // {"checkInnum":12,"hour":15,"number":26},
+                // {"checkInnum":22,"hour":16,"number":27},
+                // {"checkInnum":6,"hour":17,"number":18},
+                // {"checkInnum":7,"hour":18,"number":18},
+                // {"checkInnum":13,"hour":19,"number":14},
+                // {"checkInnum":3,"hour":20,"number":24},
+                // {"checkInnum":15,"hour":21,"number":19},
+                // {"checkInnum":8,"hour":22,"number":10},
+                // {"checkInnum":5,"hour":23,"number":8},
+                // {"checkInnum":0,"hour":24,"number":1}
+                ],
             monthData:[]
         };
     }
@@ -34,7 +58,7 @@ class Main extends Component {
                 userName: userName
             };
         this.props.getData('queryShopInfos.action', loginParams, (res) => {
-            console.log(res);
+            console.log("res-->",res);
             if(res !== ""){
                 this.state.shopName = res;
                 this.setState({shopName: this.state.shopName});
@@ -78,7 +102,7 @@ class Main extends Component {
                 Math.floor(Math.random() * 10000)
             ]);
             }
-        console.log("----->"+data);
+        // console.log("----->"+data);
         //return data;
         this.state.yearData = data;
         this.setState({yearData: this.state.yearData});
@@ -93,7 +117,7 @@ class Main extends Component {
                 }
             },
             title: {
-                text: '手机品牌',
+                text: '高峰期',
                 left: 'center',
                 top: 20,
                 textStyle: {
@@ -116,16 +140,16 @@ class Main extends Component {
             },
             series : [
                 {
-                    name:'手机品牌',
+                    name:'高峰期',
                     type:'pie',
                     radius : '55%',
                     center: ['50%', '50%'],
                     data:[
-                        {value:335, name:'华为'},
-                        {value:310, name:'小米'},
-                        {value:274, name:'OPPO'},
-                        {value:235, name:'IPHONE'},
-                        {value:400, name:'其它'}
+                        {value:335, name:'9-11点'},
+                        {value:310, name:'11-14点'},
+                        {value:274, name:'14-18点'},
+                        {value:235, name:'18-19点'},
+                        {value:400, name:'19-22点'}
                     ].sort(function (a, b) { return a.value - b.value; }),
                     roseType: 'area',
                     label: {
@@ -172,7 +196,7 @@ class Main extends Component {
         let option = {
             backgroundColor: backColor,
             title: {
-                text: '用户活跃年历',
+                text: '学员活跃年历',
                 left:'center',
                 textStyle: {
                     color: '#fff'
@@ -301,7 +325,7 @@ class Main extends Component {
                 itemWidth: 14,
                 itemHeight: 5,
                 itemGap: 13,
-                data: ['区域客流量', '入店量'],
+                data: ['一部', '二部','三部'],
                 right: '4%',
                 textStyle: {
                     fontSize: 12,
@@ -328,6 +352,9 @@ class Main extends Component {
             }],
             yAxis: [{
                 type: 'value',
+                min:10,
+                max:36,
+                splitNumber:8,
                 axisTick: {
                     show: false
                 },
@@ -348,8 +375,9 @@ class Main extends Component {
                     }
                 }
             }],
-            series: [{
-                name: '区域客流量',
+            series: [
+                {
+                name: '一部',
                 type: 'line',
                 smooth: true,
                 lineStyle: {
@@ -379,7 +407,7 @@ class Main extends Component {
                     return item.number;
                 }),
             }, {
-                name: '入店量',
+                name: '二部',
                 type: 'line',
                 smooth: true,
                 lineStyle: {
@@ -408,7 +436,38 @@ class Main extends Component {
                 data: this.state.dayData.map((item) => {
                     return item.checkInnum;
                 }),
-            }, ]
+            },
+                {
+                    name: '三部',
+                    type: 'line',
+                    smooth: true,
+                    lineStyle: {
+                        normal: {
+                            width: 1
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'rgba(219, 50, 51, 0.3)'
+                            }, {
+                                offset: 0.8,
+                                color: 'rgba(219, 50, 51, 0)'
+                            }], false),
+                            shadowColor: 'rgba(0, 0, 0, 0.1)',
+                            shadowBlur: 10
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: 'rgb(114,147,246)'
+                        }
+                    },
+                    data: this.state.dayData.map((item) => {
+                        return item.Inum;
+                    }),
+                },]
         };
         dailyUser.setOption(option);
     }
@@ -418,7 +477,7 @@ class Main extends Component {
             backgroundColor: backColor,
 
             title: {
-                text: '来访顾客平均时长占比',
+                text: '学员平均时长占比',
                 left: 'center',
                 top: 20,
                 textStyle: {
@@ -446,11 +505,11 @@ class Main extends Component {
                     radius : '55%',
                     center: ['50%', '50%'],
                     data:[
-                        {value:335, name:'大于3 hour'},
+                        {value:400, name:'大于3 hour'},
                         {value:310, name:'1 hour -- 3 hour'},
                         {value:274, name:'30 min--1 hour'},
                         {value:235, name:'10 min--30 min'},
-                        {value:400, name:'小于 10 min'}
+                        {value:233, name:'小于 10 min'}
                     ].sort(function (a, b) { return a.value - b.value; }),
                     roseType: 'radius',
                     label: {

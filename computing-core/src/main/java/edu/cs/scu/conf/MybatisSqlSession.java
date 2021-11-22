@@ -9,15 +9,6 @@ import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.io.Reader;
 
-/**
- * 获取mybatis-config.xml中相关配置
- * <p>
- * Created by Wang Han on 2017/4/6 13:37.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © Wang Han. SCU. All Rights Reserved.
- *
- * @author Wang Han
- */
 
 public class MybatisSqlSession {
 

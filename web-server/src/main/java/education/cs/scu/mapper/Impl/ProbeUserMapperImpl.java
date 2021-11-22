@@ -7,13 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import java.util.List;
 
-/**
- * 主要实现ProbeUser 数据对象的查询和存储，以redis list的数据结构来操作数据。
- *
- * @Author lch
- * @Create on 2017/08/24 19:12
- **/
-
 public class ProbeUserMapperImpl implements ProbeUserMapper {
     @Autowired
     private RedisTemplate<String, ProbeUser> redisTemplate;

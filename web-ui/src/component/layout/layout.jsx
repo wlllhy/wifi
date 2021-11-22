@@ -55,13 +55,13 @@ class Main extends Component {
 		return (
 		<Layout className="layout">
 	        {/*<Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>*/}
-		    {/*    /!*<div className="layout-logo">*!/*/}
-		    {/*    /!*	/!*<Link to="/home">*!/*!/*/}
-			{/*    /!*    /!*	/!*<img className="logo-img" src={Config.logoSrc} />*!/*!/*!/*/}
-			{/*    /!*    /!*	/!*<span className="logo-text">{Config.logoText}</span>*!/*!/*!/*/}
-		    {/*    /!*	/!*</Link>*!/*!/*/}
-		    {/*    /!*</div>*!/*/}
-	        {/*	/!*<Lmenu mode={ this.state.mode } />*!/*/}
+		    {/*    <div className="layout-logo">*/}
+		    {/*    	<Link to="/home">*/}
+			{/*        	/!*<img className="logo-img" src={Config.logoSrc} />*!/*/}
+			{/*        	/!*<span className="logo-text">{Config.logoText}</span>*!/*/}
+		    {/*    	</Link>*/}
+		    {/*    </div>*/}
+	        {/*	<Lmenu mode={ this.state.mode } />*/}
 	        {/*</Sider>*/}
 	        <Layout >
 	          <Lheader collapsed={this.state.collapsed} toggle={ collapsed => this.toggle(collapsed) } />

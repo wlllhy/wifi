@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-/**
- * Created by maicius on 2017/6/28.
- */
+
 @CrossOrigin
 @RestController
 public class queryHistoryDataController {

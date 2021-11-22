@@ -1,10 +1,6 @@
 package edu.cs.scu.entity;
 
-/**
- * author: maicius
- * date: 2018/12/11
- * description:
- */
+
 public class Cpws {
     private String file_name;
     private String ajjbqk;

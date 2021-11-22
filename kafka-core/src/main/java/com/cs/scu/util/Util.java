@@ -6,9 +6,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
-/**
- * Created by lch on 2017/6/24.
- */
 @Component
 public class Util {
 

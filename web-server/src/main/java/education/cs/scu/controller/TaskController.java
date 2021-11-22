@@ -16,10 +16,6 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.List;
 
-/**
- * @Author lch
- * @Create on 2017/09/03 14:02
- **/
 @RestController
 public class TaskController {
 
@@ -62,11 +58,10 @@ public class TaskController {
         ExcelUtil<ShopInfo> excelUtil = new ExcelUtil<ShopInfo>();
         String[] header = {"","商店ID", "拥有者", "商店地址", "商店名称", "商店管理者", "电话", "描述"};
         ShopInfo shopInfo = new ShopInfo();
-        shopInfo.setShop_owner(userName);
 
         List<ShopInfo> shopInfoList = shopService.queryShopInfos(shopInfo);
         for (ShopInfo si:shopInfoList) {
-            System.out.println(si.getShop_describe());
+            System.out.println(si.getShop_addr());
         }
 
         if (shopInfoList != null && shopInfoList.size() > 0) {

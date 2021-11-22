@@ -8,10 +8,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.StringTokenizer;
 
-/**
- * 日期工具类
- * 
- */
 public class DateUtil {
 	/**
 	 * 获取前一天的日期

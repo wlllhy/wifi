@@ -8,9 +8,6 @@
         <result column="shop_name" property="shop_name"/>
         <result column="shop_addr" property="shop_addr"/>
         <result column="shop_manager" property="shop_manager"/>
-        <result column="shop_telephone" property="shop_telephone"/>
-        <result column="shop_describe" property="shop_describe"/>
-        <result column="shop_owner" property="shop_owner"/>
     </resultMap>
 
     <resultMap id="probeInfos" type="ProbeInfo">
@@ -26,14 +23,18 @@
         <result column="user_name" property="user_name"/>
     </resultMap>
 
+
     <insert id="addShopInfo" parameterType="ShopInfo">
-            INSERT INTO shop_info(shop_name, shop_addr, shop_manager,shop_owner, shop_telephone, shop_describe)
-            VALUES ( #{shop_name}, #{shop_addr}, #{shop_manager},#{shop_owner},#{shop_telephone}, #{shop_describe});
+            INSERT INTO shop_info(shop_name, shop_addr, shop_manager,shop_id)
+            VALUES ( #{shop_name}, #{shop_addr}, #{shop_manager},#{shop_id});
         </insert>
     <select id="queryShopInfos" parameterType="ShopInfo" resultMap="shopInfos">
             SELECT * FROM shop_info
-            WHERE shop_owner = #{shop_owner}
         </select>
+
+    <select id="queryClassMac" resultType="ClassMac">
+        SELECT * FROM class_mac
+    </select>
 
 
     <select id="queryShopNameById" parameterType="ShopInfo" resultMap="shopInfos">
@@ -42,9 +43,7 @@
     </select>
     <update id="updateShopInfo" parameterType="ShopInfo">
             UPDATE shop_info
-            SET shop_name=#{shop_name}, shop_addr = #{shop_addr}, shop_manager = #{shop_manager},
-            shop_owner = #{shop_owner},shop_telephone = #{shop_telephone},
-            shop_describe = #{shop_describe}
+            SET shop_name=#{shop_name}, shop_addr = #{shop_addr}, shop_manager = #{shop_manager}
             WHERE shop_id = #{shop_id}
         </update>
 

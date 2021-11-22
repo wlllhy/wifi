@@ -26,6 +26,12 @@ export class Lheader extends Component {
 				pathname: '/general/allDataView'
 			});
   	}
+	toggle1 = () => {
+		// this.props.toggle(!this.props.collapsed);
+		this.context.router.push({
+			pathname: '/ui/twoui'
+		});
+	}
   	logout= (e) => {
   		// 模拟退出
   		if(e.key === 'logout') {
@@ -38,7 +44,19 @@ export class Lheader extends Component {
 	render() {
 		return (
 			<Header className="layout-header">
-	            <Icon className="trigger" type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'} onClick={this.toggle} />
+				<div className="dropdown">
+	            <Icon className="dropbtn" type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'} onClick={this.toggle} />
+					<div className="dropdown-content">
+
+						<div className="history" onClick={this.toggle}>
+							历史览阅
+						</div>
+						<div className="history1" onClick={this.toggle1}>
+							学员管理
+						</div>
+
+					</div>
+				</div>
 				<span className="biaoti">流量可视化监控平台</span>
 
 	            <Menu mode="horizontal" onClick={this.logout} className="layout-header-menu">
@@ -46,7 +64,7 @@ export class Lheader extends Component {
 		        	<Menu.Item key="logout">注销</Menu.Item>
 		        </SubMenu>
 			    </Menu>
-				<span className="read-data">历史览阅</span>
+				{/*<span className="read-data">历史览阅</span>*/}
 				<div className="tupian2"> </div>
 	        </Header>
 		)

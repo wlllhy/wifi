@@ -61,6 +61,12 @@ public class Monitor implements Runnable {
         int delay = 3;
         System.out.println("delay = " + delay);
 
+        /*
+        * 第一个command参数是任务实例，
+        第二个initialDelay参数是初始化延迟时间，
+        第三个period参数是间隔时间，
+        第四个unit参数是时间单元。
+        * */
         newScheduledThreadPool.scheduleWithFixedDelay(new Monitor(), 1, delay, TimeUnit.SECONDS);
     }
 }

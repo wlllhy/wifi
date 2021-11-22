@@ -14,12 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * ShopMapperImpl
- *
- * @Author lch
- * @Create on 2017/08/25 15:09
- **/
 public class ShopMapperImpl  {
 
     @Autowired
@@ -38,12 +32,12 @@ public class ShopMapperImpl  {
         List<ShopInfo> temps = new ArrayList<ShopInfo>();
         Map<Object, Object> map = redisTemplate.opsForHash().entries(SHOP_INFO_KEY);
         for (ShopInfo si : shopInfos) {
-
-            if (map.containsKey(si.getShop_owner())) {
-                temps = (List<ShopInfo>) map.get(si.getShop_owner());
-                results.addAll(temps);
-                System.out.println(map.get(si.getShop_owner()));
-            }
+//
+//            if (map.containsKey(si.getShop_owner())) {
+//                temps = (List<ShopInfo>) map.get(si.getShop_owner());
+//                results.addAll(temps);
+//                System.out.println(map.get(si.getShop_owner()));
+//            }
             //results.add((ShopInfo) redisTemplate.opsForHash().get(SHOP_INFO_KEY, si.getShop_owner()));
         }
         return results;
@@ -57,10 +51,10 @@ public class ShopMapperImpl  {
         List<ShopInfo> results = new ArrayList<ShopInfo>();
         Map<Object, Object> map = redisTemplate.opsForHash().entries(SHOP_INFO_KEY);
 
-        if (map.containsKey(shopInfo.getShop_owner())) {
-            results = (List<ShopInfo>) map.get(shopInfo.getShop_owner());
-            //System.out.println(map.get(shopInfo.getShop_owner()));
-        }
+//        if (map.containsKey(shopInfo.getShop_owner())) {
+//            results = (List<ShopInfo>) map.get(shopInfo.getShop_owner());
+//            //System.out.println(map.get(shopInfo.getShop_owner()));
+//        }
         return results;
     }
 
@@ -71,7 +65,7 @@ public class ShopMapperImpl  {
         try {
             List<ShopInfo> shopInfoList = queryShopInfos(shopInfo);
             shopInfoList.add(shopInfo);
-            redisTemplate.opsForHash().put(SHOP_INFO_KEY, shopInfo.getShop_owner(), shopInfoList);
+//            redisTemplate.opsForHash().put(SHOP_INFO_KEY, shopInfo.getShop_owner(), shopInfoList);
         } catch (RedisConnectionFailureException e) {
             return 0;
         } catch (ClassCastException e) {
@@ -94,7 +88,7 @@ public class ShopMapperImpl  {
         }
 
         try {
-            redisTemplate.opsForHash().put(SHOP_INFO_KEY, shopInfo.getShop_owner(), shopInfoList);
+//            redisTemplate.opsForHash().put(SHOP_INFO_KEY, shopInfo.getShop_owner(), shopInfoList);
         } catch (RedisConnectionFailureException e) {
             return 0;
         }
@@ -137,19 +131,19 @@ public class ShopMapperImpl  {
      * */
     public List<ProbeInfo> queryShopProbeInfo(ShopInfo shopInfo) {
         List<ProbeInfo> results = new ArrayList<ProbeInfo>();
-        try {
-            Map<Object, Object> map = redisTemplate.opsForHash().entries(PROBE_INFO_KEY);
-            if (map.containsKey(shopInfo.getShop_owner())) {
-                results = (List<ProbeInfo>) map.get(shopInfo.getShop_owner());
-            }
-            for (ProbeInfo pi:results) {
-                if (pi.getShop_id() != shopInfo.getShop_id()) {
-                    results.remove(pi);
-                }
-            }
-        } catch (RedisConnectionFailureException e) {
-            return null;
-        }
+//        try {
+//            Map<Object, Object> map = redisTemplate.opsForHash().entries(PROBE_INFO_KEY);
+//            if (map.containsKey(shopInfo.getShop_owner())) {
+//                results = (List<ProbeInfo>) map.get(shopInfo.getShop_owner());
+//            }
+//            for (ProbeInfo pi:results) {
+//                if (pi.getShop_id() != shopInfo.getShop_id()) {
+//                    results.remove(pi);
+//                }
+//            }
+//        } catch (RedisConnectionFailureException e) {
+//            return null;
+//        }
         return results;
     }
 

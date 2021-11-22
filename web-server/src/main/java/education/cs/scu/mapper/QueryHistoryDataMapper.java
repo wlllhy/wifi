@@ -8,9 +8,6 @@ import education.cs.scu.entity.entityData.Year;
 
 import java.util.List;
 
-/**
- * Created by maicius on 2017/6/29.
- */
 public interface QueryHistoryDataMapper {
 
     int addActivityData() throws Exception;

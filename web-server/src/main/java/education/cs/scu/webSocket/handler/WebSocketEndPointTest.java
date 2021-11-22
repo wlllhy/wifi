@@ -1,5 +1,6 @@
 package education.cs.scu.webSocket.handler;
 
+import education.cs.scu.entity.UserVisitBean;
 import education.cs.scu.webSocket.Monitor;
 
 import javax.websocket.*;
@@ -86,7 +87,13 @@ public class WebSocketEndPointTest {
      * @throws IOException
      */
     public void sendMessage(Object object) throws IOException, EncodeException {
-        this.session.getBasicRemote().sendObject(object);
+//        UserVisitBean u = (UserVisitBean) object;
+//        System.out.println(
+//                u.toString()
+//        );
+        synchronized (this.session) {
+            this.session.getBasicRemote().sendObject(object);
+        }
 
     }
 

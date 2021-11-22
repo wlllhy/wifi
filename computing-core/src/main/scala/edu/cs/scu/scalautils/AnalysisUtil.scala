@@ -5,16 +5,6 @@ import edu.cs.scu.common.constants.AnalysisConstants
 import edu.cs.scu.dao.impl.UserVisitTimeDaoImpl
 import edu.cs.scu.javautils.DateUtil
 import org.apache.log4j.Logger
-
-/**
-  * 获取数据的工具类
-  *
-  * Created by Wang Han on 2017/6/20 18:44.
-  * E-mail address is wanghan0501@vip.qq.com.
-  * Copyright © 2017 Wang Han. SCU. All Rights Reserved.
-  *
-  * @author Wang Han
-  */
 object AnalysisUtil {
   // 得到log记录器
   private val logger = Logger.getLogger(classOf[AnalysisUtil])
@@ -34,7 +24,7 @@ object AnalysisUtil {
 //      true
 //    else
 //      false
-    if(range < 10)
+    if(range < 19)
       true
     else
       false

@@ -7,13 +7,6 @@ import org.apache.spark.rdd.RDD
 
 import scala.collection.mutable.ArrayBuffer
 
-/**
-  * Created by Wang Han on 2017/9/2 18:02.
-  * E-mail address is wanghan0501@vip.qq.com.
-  * Copyright © 2017 Wang Han. All Rights Reserved.
-  *
-  * @author Wang Han
-  */
 class TimeSeriesModel {
   //预测后面N个值
   private var predictedN = 1

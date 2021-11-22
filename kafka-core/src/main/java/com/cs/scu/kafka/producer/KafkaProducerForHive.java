@@ -6,9 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Properties;
 
-/**
- * Created by lch on 2017/6/24.
- */
 @Component
 public class KafkaProducerForHive {
     Properties properties;

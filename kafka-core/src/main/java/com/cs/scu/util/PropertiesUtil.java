@@ -4,10 +4,6 @@ import org.springframework.core.io.ClassPathResource;
 import java.io.IOException;
 import java.util.Properties;
 
-/**
- * 配置文件（*.properties）工具类
- * 
- */
 public class PropertiesUtil {
 	
 	public static boolean setProperty(String key, String value) {

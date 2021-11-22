@@ -63,6 +63,7 @@
             <version>2.6</version>
         </dependency>
 
+
         <!--Kafka和spring集成的支持类库，spring和kafka通信监听!-->
         <dependency>
             <groupId>org.springframework.integration</groupId>

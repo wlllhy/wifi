@@ -2,10 +2,6 @@ package education.cs.scu.entity.entityData;
 
 import java.io.Serializable;
 
-/**
- * @Author lch
- * @Create on 2017/09/05 22:56
- **/
 public class Month implements Serializable {
 
     private static final long serialVersionUID = -7816256075766296336L;

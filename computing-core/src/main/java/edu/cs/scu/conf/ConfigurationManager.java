@@ -6,15 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-/**
- * 配置加载管理类
- * <p>
- * Created by Wang Han on 2017/3/29 14:36.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © Wang Han SCU. All Rights Reserved.
- *
- * @author Wang Han
- */
 public class ConfigurationManager {
     // 配置属性
     private static Properties properties = new Properties();

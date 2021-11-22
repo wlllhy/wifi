@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-/**
- * Created by maicius on 2017/3/31.
- */
 @RestController
 public class LoginController {
 

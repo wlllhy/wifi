@@ -27,7 +27,8 @@ const receivePosts = (path, json) => {
 
 // 获取数据成功
 const getDataSuccess = (path, json, success, name) => {
-    //console.log('getDataSuccess' + json);
+    // console.log('getDataSuccess' + json);
+	console.log("xxx->", json)
 	return {
 		type: GET_DATA_SUCCESS,
 		path,
@@ -41,7 +42,7 @@ const getDataSuccess = (path, json, success, name) => {
 export const getData = (path, postData, success, name, method='GET') => {
 	let url = target + path + Config.paramFormat(postData);
 	console.log(url);
-	//console.log('action getData');
+	console.log('手动调用获取数据的action getData');
 	return dispatch => {
 		return fetch(url, {
 			method,
@@ -52,7 +53,7 @@ export const getData = (path, postData, success, name, method='GET') => {
 		})
 		.then(response => response.json())
 		.then(json => dispatch(getDataSuccess(path, json, success, name)))
-		.catch(error => console.log(error))
+		.catch(error => console.log("ss->",error))
 	}
 };
 
@@ -79,7 +80,7 @@ export const fetchGets = (path, postData) => {
 
 //获取实时数据
 export const getRealTimeData = (data) =>{
-	console.log(data);
+	console.log("获取实时数据--》",data);
 	return {
 		type: GET_REAL_TIME_DATA,
 		data

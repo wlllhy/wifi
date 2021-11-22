@@ -7,12 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.data.redis.core.RedisTemplate;
 
-/**
- * PropertyMapper
- *
- * @Author lch
- * @Create on 2017/08/25 12:22
- **/
 public class PropertyMapperImpl {
 
     @Autowired

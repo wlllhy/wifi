@@ -1,8 +1,5 @@
 package com.cs.scu.kafka.producer;
 
-/**
- * Created by lch on 2017/5/6.
- */
 public class KafkaMesConstant {
     public static final String SUCCESS_CODE = "00000";
     public static final String SUCCESS_MES = "成功";

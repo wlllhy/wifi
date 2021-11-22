@@ -14,10 +14,6 @@ import org.apache.spark.streaming.kafka010.KafkaUtils
 import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
-/**
-  * 初始化spark环境工具
-  */
-
 object InitUtil {
   // 得到log记录器
   private val logger = Logger.getLogger(classOf[InitUtil])

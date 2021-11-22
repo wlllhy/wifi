@@ -7,14 +7,6 @@ import com.cloudera.sparkts._
 import edu.cs.scu.scalautils.InitUtil
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{DataFrame, Row}
-
-/**
-  * Created by Wang Han on 2017/9/1 21:51.
-  * E-mail address is wanghan0501@vip.qq.com.
-  * Copyright © 2017 Wang Han. All Rights Reserved.
-  *
-  * @author Wang Han
-  */
 object BI {
   def main(args: Array[String]): Unit = {
     val data = getData()

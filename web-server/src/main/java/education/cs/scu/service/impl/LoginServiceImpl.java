@@ -9,9 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-/**
- * Created by maicius on 2017/3/31.
- */
 @Service
 public class LoginServiceImpl implements LoginService {
     @Autowired

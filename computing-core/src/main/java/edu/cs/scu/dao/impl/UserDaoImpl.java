@@ -13,13 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 用户信息数据库接口
- * <p>
- * Created by Wang Han on 2017/6/19 13:58.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © 2017 Wang Han. SCU. All Rights Reserved.
- */
 public class UserDaoImpl extends BaseDao {
 
     @Override

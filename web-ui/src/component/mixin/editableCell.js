@@ -1,6 +1,3 @@
-/**
- * Created by maicius on 2017/6/21.
- */
 import React from 'react';
 import {Input} from 'antd';
 class EditableCell extends React.Component {

@@ -1,6 +1,4 @@
-/**
- * Created by maicius on 2017/8/30.
- */
+
 
 const Singleton = (function () {
     let instance;

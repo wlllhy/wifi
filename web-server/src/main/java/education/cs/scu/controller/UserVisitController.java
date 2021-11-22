@@ -15,10 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Author lch
- * @Create on 2017/09/02 20:40
- **/
 @RestController
 public class UserVisitController {
     @Autowired

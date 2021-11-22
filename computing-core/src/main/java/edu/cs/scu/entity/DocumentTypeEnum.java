@@ -1,10 +1,5 @@
 package edu.cs.scu.entity;
 
-/**
- * author: maicius
- * date: 2019/2/14
- * description:
- */
 public enum DocumentTypeEnum {
     /**
      * 文本型

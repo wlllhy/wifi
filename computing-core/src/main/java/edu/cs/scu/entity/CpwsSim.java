@@ -1,10 +1,5 @@
 package edu.cs.scu.entity;
 
-/**
- * author: maicius
- * date: 2019/2/25
- * description:
- */
 public class CpwsSim {
     private String file_name;
     private Float node_sim;

@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by lch on 2017/6/21.
- */
 public class DataGroup {
 
     private String id;

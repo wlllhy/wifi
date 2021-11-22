@@ -9,9 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by maicius on 2017/6/28.
- */
 @Service
 public class ProbeUserServiceImpl implements ProbeUserService{
 

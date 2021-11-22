@@ -8,9 +8,6 @@ import education.cs.scu.javautils.ExcelUtil;
 
 import java.util.List;
 
-/**
- * Created by maicius on 2017/6/18.
- */
 public interface UserVisitMapper {
     void addUserVisit(UserVisitBean userVisitBean) throws Exception;
     List<UserVisitBean>  queryUserVisit(List<Integer> shopIdlist) throws Exception;

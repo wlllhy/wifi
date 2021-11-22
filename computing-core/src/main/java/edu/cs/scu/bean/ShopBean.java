@@ -2,11 +2,6 @@ package edu.cs.scu.bean;
 
 import java.io.Serializable;
 
-/**
- * Created by Wang Han on 2017/6/19 13:56.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © 2017 Wang Han. SCU. All Rights Reserved.
- */
 public class ShopBean implements Serializable {
 
     private static final long serialVersinUID = 351877796426921776L;

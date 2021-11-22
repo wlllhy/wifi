@@ -8,9 +8,7 @@ import javax.websocket.Encoder;
 import javax.websocket.EndpointConfig;
 import java.io.StringWriter;
 
-/**
- * Created by maicius on 2017/6/18.
- */
+
 public class UserFlowEncoder implements Encoder.Text<UserVisitBean> {
     @Override
     public String encode(UserVisitBean userDiagramData) throws EncodeException {

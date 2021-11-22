@@ -8,16 +8,6 @@ import org.apache.spark.streaming.StreamingContext
 
 import java.util.concurrent.{ExecutorService, Executors}
 
-
-/**
-  * 分析程序入口
-  *
-  * Created by Wang Han on 2017/3/29 14:42.
-  * E-mail address is wanghan0501@vip.qq.com.
-  * Copyright © Wang Han SCU. All Rights Reserved.
-  *
-  * @author Wang Han
-  */
 object Main {
   def main(args: Array[String]): Unit = {
 

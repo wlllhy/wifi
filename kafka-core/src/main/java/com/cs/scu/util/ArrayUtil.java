@@ -12,15 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 有关数组处理的工具类。
- * 
- * <p>
- * 这个类中的每个方法都可以“安全”地处理<code>null</code>，而不会抛出<code>NullPointerException</code>。
- * </p>
- *
- * @author zym
- */
+
 public class ArrayUtil {
     /* ============================================================================ */
     /*  常量和singleton。                                                           */

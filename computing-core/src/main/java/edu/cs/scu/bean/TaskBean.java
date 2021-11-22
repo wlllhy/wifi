@@ -2,15 +2,6 @@ package edu.cs.scu.bean;
 
 import java.io.Serializable;
 
-/**
- * 任务类
- * <p>
- * Created by Wang Han on 2017/4/2 23:33.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © Wang Han. SCU. All Rights Reserved.
- *
- * @author Wang Han
- */
 public class TaskBean implements Serializable {
 
     private static final long serialVersinUID = 351877796426921776L;

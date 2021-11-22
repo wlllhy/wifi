@@ -1,8 +1,5 @@
 package com.cs.scu.entity;
 
-/**
- * Created by maicius on 2017/3/31.
- */
 public class User {
     private String userName;
     private String password;

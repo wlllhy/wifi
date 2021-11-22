@@ -2,9 +2,6 @@ package education.cs.scu.entity;
 
 import java.io.Serializable;
 
-/**
- * Created by maicius on 2017/3/31.
- */
 public class User implements Serializable {
     private String userName;
     private String password;
@@ -13,10 +10,9 @@ public class User implements Serializable {
     private String verifyTime;
     public User(){}
 
-    public User(String userName, String password, String verifyCode){
+    public User(String userName, String password){
         this.userName = userName;
         this.password = password;
-        this.verifyCode = verifyCode;
     }
 
     public String getUserName() {

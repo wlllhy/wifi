@@ -2,12 +2,6 @@ package education.cs.scu.entity;
 
 import java.io.Serializable;
 
-/**
- *  任务类
- *
- * @Author lch
- * @Create on 2017/09/2 19:12
- **/
 public class TaskBean implements Serializable {
 
     private static final long serialVersinUID = 351877796426921776L;

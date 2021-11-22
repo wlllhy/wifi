@@ -1,13 +1,4 @@
-/**
- +-------------------------------------------------------------------
- * jQuery FontScroll - ÎÄ×ÖÐÐÏòÉÏ¹ö¶¯²å¼þ - http://java2.sinaapp.com
- +-------------------------------------------------------------------
- * @version    1.0.0 beta
- * @since      2014.06.12
- * @author     kongzhim <kongzhim@163.com> <http://java2.sinaapp.com>
- * @github     http://git.oschina.net/kzm/FontScroll
- +-------------------------------------------------------------------
- */
+
 
 (function($){
     $.fn.FontScroll = function(options){
@@ -17,16 +8,16 @@
 
         this.children('ul').addClass('line');
         var _con = $('.line').eq(0);
-        var _conH = _con.height(); //¹ö¶¯×Ü¸ß¶È
-        var _conChildH = _con.children().eq(0).height();//Ò»´Î¹ö¶¯¸ß¶È
-        var _temp = _conChildH;  //ÁÙÊ±±äÁ¿
-        var _time = d.time;  //¹ö¶¯¼ä¸ô
-        var _s = d.s;  //¹ö¶¯¼ä¸ô
+        var _conH = _con.height(); //ï¿½ï¿½ï¿½ï¿½ï¿½Ü¸ß¶ï¿½
+        var _conChildH = _con.children().eq(0).height();//Ò»ï¿½Î¹ï¿½ï¿½ï¿½ï¿½ß¶ï¿½
+        var _temp = _conChildH;  //ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
+        var _time = d.time;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        var _s = d.s;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
-        _con.clone().insertAfter(_con);//³õÊ¼»¯¿ËÂ¡
+        _con.clone().insertAfter(_con);//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Â¡
 
-        //ÑùÊ½¿ØÖÆ
+        //ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
         var num = d.num;
         var _p = this.find('li');
         var allNum = _p.length;
@@ -39,7 +30,7 @@
 
         function Up(){
             _con.animate({marginTop: '-'+_conChildH});
-            //ÑùÊ½¿ØÖÆ
+            //ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
             _p.removeClass(_s);
             num += 1;
             _p.eq(num).addClass(_s);

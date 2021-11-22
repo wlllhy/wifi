@@ -6,10 +6,6 @@ import education.cs.scu.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * @Author lch
- * @Create on 2017/09/03 12:27
- **/
 @Service
 public class TaskServiceImpl implements TaskService {
     @Autowired

@@ -7,6 +7,7 @@ import EditableCell from '../../component/mixin/editableCell';
 import Config from '../../component/mixin/Config';
 import {Bcrumb} from "../../component/bcrumb/bcrumb";
 import CollectionCreateForm from "../../component/mixin/ShopName"
+import './style/home.less'
 const FormItem = Form.Item;
 /* 以类的方式创建一个组件 */
 class Main extends Component {
@@ -14,75 +15,47 @@ class Main extends Component {
     constructor(props) {
         super(props);
         this.columns = [{
-            title: '商场ID',
+            title: '学号',
             dataIndex: 'shop_id',
-			width:'10%',
+            width:'15%',
             render: (text, record, index) => this.renderColumns(this.state.data, index, 'shop_id', text),
         }, {
-            title: '商场名称',
+            title: '学生姓名',
             dataIndex: 'shop_name',
-            width:'10%',
+            width:'15%',
             render: (text, record, index) => this.renderColumns(this.state.data, index, 'shop_name', text),
         }, {
-            title: '商场地址',
+            title: 'mac地址',
             dataIndex: 'shop_address',
-            width:'10%',
+            width:'20%',
             render: (text, record, index) => this.renderColumns(this.state.data, index, 'shop_address', text),
         },{
-        	title:'负责人',
-			dataIndex:'shop_manager',
-            width:'10%',
+            title:'部门',
+            dataIndex:'shop_manager',
+            width:'15%',
             render: (text, record, index) => this.renderColumns(this.state.data, index, 'shop_manager', text),
-		},{
-            title:'联系方式',
-            dataIndex:'shop_telephone',
-            width:'10%',
-            render: (text, record, index) => this.renderColumns(this.state.data, index, 'shop_telephone', text),
-        },{
-        	title:'平均入店率',
-			dataIndex:'avg_enter_ratio',
-            width:'10%',
-            sorter: (a, b) => a.avg_enter_ratio - b.avg_enter_ratio,
-			render: (text, record, index) =>this.renderColumns(this.state.data, index, 'avg_enter_ratio', text)
-		},{
-            title:'平均驻店时长',
-            dataIndex:'avg_stay_time',
-            width:'10%',
-			sorter:(a, b) => a.avg_stay_time - b.avg_stay_time,
-            render: (text, record, index) =>this.renderColumns(this.state.data, index, 'avg_stay_time', text)
-        },{
-            title:'累计入店人次',
-            dataIndex:'total_enter_times',
-            width:'10%',
-			sorter:(a, b) => a.total_enter_times - b.total_enter_times,
-            render: (text, record, index) =>this.renderColumns(this.state.data, index, 'total_enter_times', text)
-        },{
-        	title:'查看详情',
-			dataIndex:'viewDetail',
-            width:'10%',
-            render:(text, record) =>(
-				<span><a href="./monitorSetting">查看{record.shop_name}</a></span>)
-		}, {
+        }, {
             title: 'operation',
             dataIndex: 'operation',
             render: (text, record, index) => {
+                // console.log("测试---》",text,"re-->", record,"in-->", index)
                 const { editable } = this.state.data[index].shop_name;
                 return (
-					<div className="editable-row-operations">
+                    <div className="editable-row-operations">
                         {
                             editable ?
-								<span>
+                                <span>
                   <a onClick={() => this.editDone(index, 'save')}>保存</a>
                   <Popconfirm title="Sure to cancel?" onConfirm={() => this.editDone(index, 'cancel')}>
                     <a>取消</a>
                   </Popconfirm>
                 </span>
                                 :
-								<span>
+                                <span>
                   <a onClick={() => this.edit(index)}>编辑</a>
                 </span>
                         }
-					</div>
+                    </div>
                 );
             },
         }];
@@ -92,40 +65,40 @@ class Main extends Component {
             data: [{
                 key: '0',
                 shop_id: {
-                    value: 1
+                    value: 2018211476
                 },
                 shop_name: {
                     editable: false,
-                    value: '商业街'
+                    value: '何鹏'
                 },
-				shop_address:{
-                	editable: false,
-                	value: '四川大学江安校区'
-				},
-				shop_manager:{
-                	editable: false,
-                	value: 'maicius'
-				},
+                shop_address:{
+                    editable: false,
+                    value: 'xxxx'
+                },
+                shop_manager:{
+                    editable: false,
+                    value: '1'
+                },
                 shop_telephone:{
                     editable: false,
                     value:'18996720676'
                 },
-				avg_enter_ratio:{
-                	value: 0.7
-				},
-				avg_stay_time:{
-                	value: 30
-				},
-				total_enter_times:{
-                	value: 	10000
-				},
+                avg_enter_ratio:{
+                    value: 0.7
+                },
+                avg_stay_time:{
+                    value: 30
+                },
+                total_enter_times:{
+                    value: 	10000
+                },
                 shop_describe:{
-                	editable: false,
-                	value:'It\'s a descrpition'
-				},
-				viewDetail:{
-                	value:'查看详情',
-				},
+                    editable: false,
+                    value:'It\'s a descrpition'
+                },
+                viewDetail:{
+                    value:'查看详情',
+                },
                 operation: {
                     value: '编辑',
                 },
@@ -138,11 +111,11 @@ class Main extends Component {
             return text;
         }
         return (<EditableCell
-			editable={editable}
-			value={text}
-			onChange={value => this.handleChange(key, index, value)}
-			status={status}
-		/>);
+            editable={editable}
+            value={text}
+            onChange={value => this.handleChange(key, index, value)}
+            status={status}
+        />);
     }
     handleChange(key, index, value) {
         const { data } = this.state;
@@ -159,6 +132,7 @@ class Main extends Component {
         this.setState({ data });
     }
     editDone(index, type) {
+        // console.log("type-->",type)
         const { data } = this.state;
         Object.keys(data[index]).forEach((item) => {
             if (typeof data[index][item].editable !== 'undefined') {
@@ -172,7 +146,30 @@ class Main extends Component {
                     delete data[index][item].status;
                 }
             });
+            // console.log("lgggg",data[index])
+            if (type !== "cancel"){
+                let shop_name = data[index].shop_name.value,
+                    shop_addr = data[index].shop_address.value,
+                    shop_manager = data[index].shop_manager.value,
+                    shop_telephone = data[index].shop_id.value,
+                    loginParams = {
+                        shopName: shop_name,
+                        shopAddr: shop_addr,
+                        shopManager: shop_manager,
+                        shopTelephone: shop_telephone
+                    };
+                // console.log("lo--->",loginParams)
+                this.props.getData('updateShopInfo.action', loginParams, (res) => {
+                    console.log("res-->",res);
+                    if(res !== ""){
+                        this.getShopInfos();
+                    }
+                })
+            }
         });
+
+
+
     }
     getShopInfos = () => {
         let userName = localStorage.getItem("USERNAME"),
@@ -180,7 +177,7 @@ class Main extends Component {
                 userName: userName
             };
         this.props.getData('queryShopInfos.action', loginParams, (res) => {
-            console.log(res);
+            console.log("res-->",res);
             if(res !== ""){
                 this.handleData(res)
             }
@@ -208,26 +205,6 @@ class Main extends Component {
                     editable: false,
                     value: item.shop_manager
                 },
-                shop_telephone:{
-                    editable: false,
-                    value:item.shop_telephone
-                },
-                avg_enter_ratio:{
-                    value:0
-                },
-                avg_stay_time:{
-                    value: 0
-                },
-                total_enter_times:{
-                    value:0
-                },
-                shop_describe:{
-                    editable: false,
-                    value:item.shop_describe
-                },
-                viewDetail:{
-                    value:'查看详情',
-                },
                 operation: {
                     value: '编辑',
                 },
@@ -235,8 +212,8 @@ class Main extends Component {
         });
         console.log(this.state.data);
         this.setState({
-                visible: false,
-                data: this.state.data});
+            visible: false,
+            data: this.state.data});
     };
     convertJsonToArray = (strData) => {
         strData = JSON.parse(strData);
@@ -317,24 +294,21 @@ class Main extends Component {
         const columns = this.columns;
 
         return (
-        	<div>
-        		<Bcrumb title="商场管理"/>
-        		<Table bordered dataSource={dataSource} columns={columns}
-					   expandedRowRender={record => <p>{record.shop_describe}</p>}/>
+            <div>
+                <Bcrumb title="学员管理"/>
+                <Table bordered dataSource={dataSource} columns={columns}
+                       expandedRowRender={record => <p>{record.shop_describe}</p>}/>
                 <div>
-                    <Button type="primary" onClick={this.showModal}>添加新商场</Button>
-                <CollectionCreateForm ref={this.saveFormRef}
-                                      visible={this.state.visible}
-                                      onCancel={this.handleCancel}
-                                      onCreate={this.handleCreate}/>
-                    <Button className="mg-left10" type="primary" loading={this.state.loading} onClick={this.getExcel}>导出报表</Button>
+                    <Button type="primary" onClick={this.showModal}>添加学员</Button>
+                    <CollectionCreateForm ref={this.saveFormRef}
+                                          visible={this.state.visible}
+                                          onCancel={this.handleCancel}
+                                          onCreate={this.handleCreate}/>
+                    {/*<Button className="mg-left10" type="primary" loading={this.state.loading} onClick={this.getExcel}>导出报表</Button>*/}
                 </div>
-			</div>
-		);
+            </div>
+        );
     }
-
-
-
 }
 
 
@@ -343,6 +317,6 @@ Main.contextTypes = {
 };
 
 export default RenderData({
-	id: 'twoui', // 应用关联使用的redex
-	component: Main // 接收数据的组件入口
+    id: 'twoui', // 应用关联使用的redex
+    component: Main // 接收数据的组件入口
 });

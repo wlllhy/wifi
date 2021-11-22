@@ -8,11 +8,6 @@ import redis.clients.jedis.ShardedJedis;
 
 import java.util.List;
 
-/**
- * Created by Wang Han on 2017/6/20 16:40.
- * E-mail address is wanghan0501@vip.qq.com.
- * Copyright © 2017 Wang Han. SCU. All Rights Reserved.
- */
 public class UserVisitTimeDaoImpl extends BaseDao {
 
     @Override

@@ -14,9 +14,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * Created by lch on 2017/5/3.
- */
 @Service
 public class DataUploadServiceImpl implements DataUploadService {
 

@@ -7,15 +7,6 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-/**
- * 有关<code>Object</code>处理的工具类。
- * 
- * <p>
- * 这个类中的每个方法都可以“安全”地处理<code>null</code>，而不会抛出<code>NullPointerException</code>。
- * </p>
- *
- * @author zym
- */
 public class ObjectUtil {
     /* ============================================================================ */
     /*  常量和singleton。                                                           */

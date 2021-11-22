@@ -11,9 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
-/**
- * Created by lch on 2017/6/18.
- */
+
 @Component
 public class KafkaConsumers {
 

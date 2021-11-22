@@ -8,12 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 工具类，用来获取给定userName下的shop_id
- *
- * @Author lch
- * @Create on 2017/08/25 00:56
- **/
+
 @Component("queryUsersShopInfo")
 public class QueryUsersShopInfo {
 
@@ -28,7 +23,7 @@ public class QueryUsersShopInfo {
     public List<Integer> getShopId(String userName) throws Exception {
 
         ShopInfo shopInfo = new ShopInfo();
-        shopInfo.setShop_owner(userName);
+//        shopInfo.setShop_owner(userName);
 
         List<Integer> shopIdlist = new ArrayList<Integer>();
         List<ShopInfo> shopInfoList = shopService.queryShopInfos(shopInfo);

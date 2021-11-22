@@ -92,8 +92,6 @@ class Login extends Component {
                     };
                 this.setState({loginBtnLoading: true, loginBtnText: '登录中...'});
                 this.props.getData('userLogin.action', loginParams, (res) => {
-                    console.log('verify code:')
-                    console.log(res.verifyCode);
                     if (res.userName !== null) {
                         Config.localItem(Config.localKey.userToken, (new Date()).getTime()); // 模拟登录成功返回的Token
                         //console.log(res.userName);
@@ -188,22 +186,22 @@ class Login extends Component {
                                     <Input size="large" type="password" placeholder="密码" maxLength="16" minLength="6"/>
                                 )}
                             </FormItem>
-                            <FormItem>
-                                <div className="verify-code">
-                                    {getFieldDecorator('verifyCode', {
-                                        rules: [{
-                                            required: false,
-                                            message: Config.message.verifyCodeInput,
-                                        }, {
-                                            validator: this.checkVerifyCode
-                                        }],
-                                    })(
-                                        <Input size="large" type="text" placeholder="点击获取验证码"/>
-                                    )}
-                                    <Button type="primary" size="large"
-                                            onClick={this.handleClick} loading={this.state.verifyBtnWaiting}>{this.state.verifyBtnText}</Button>
-                                </div>
-                            </FormItem>
+                            {/*<FormItem>*/}
+                            {/*    <div className="verify-code">*/}
+                            {/*        {getFieldDecorator('verifyCode', {*/}
+                            {/*            rules: [{*/}
+                            {/*                required: false,*/}
+                            {/*                message: Config.message.verifyCodeInput,*/}
+                            {/*            }, {*/}
+                            {/*                validator: this.checkVerifyCode*/}
+                            {/*            }],*/}
+                            {/*        })(*/}
+                            {/*            <Input size="large" type="text" placeholder="点击获取验证码"/>*/}
+                            {/*        )}*/}
+                            {/*        <Button type="primary" size="large"*/}
+                            {/*                onClick={this.handleClick} loading={this.state.verifyBtnWaiting}>{this.state.verifyBtnText}</Button>*/}
+                            {/*    </div>*/}
+                            {/*</FormItem>*/}
                             <FormItem>
                                 <Button type="primary" htmlType="submit" size="large"
                                         loading={this.state.loginBtnLoading}>{this.state.loginBtnText}</Button>

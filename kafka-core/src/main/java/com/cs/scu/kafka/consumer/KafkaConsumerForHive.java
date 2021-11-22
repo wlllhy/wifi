@@ -21,9 +21,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
-/**
- * Created by lch on 2017/6/24.
- */
 public class KafkaConsumerForHive {
     Properties properties;
     Connection con;

@@ -2,10 +2,6 @@ package education.cs.scu.entity;
 
 import java.io.Serializable;
 
-/**
- * @Author lch
- * @Create on 2017/09/03 00:30
- **/
 public class UserBean implements Serializable {
 
 

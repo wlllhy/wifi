@@ -1,5 +1,6 @@
 package education.cs.scu.service.impl;
 
+import education.cs.scu.entity.ClassMac;
 import education.cs.scu.entity.ProbeInfo;
 import education.cs.scu.entity.ShopInfo;
 import education.cs.scu.entity.User;
@@ -10,9 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by maicius on 2017/6/27.
- */
 @Service
 public class ShopServiceImpl implements  ShopService{
 
@@ -58,5 +56,10 @@ public class ShopServiceImpl implements  ShopService{
     @Override
     public List<ShopInfo> queryShopNameById(ShopInfo shopInfo) {
         return shopMapper.queryShopNameById(shopInfo);
+    }
+
+    @Override
+    public List<ClassMac> queryClassMac() {
+        return shopMapper.queryClassMac();
     }
 }
